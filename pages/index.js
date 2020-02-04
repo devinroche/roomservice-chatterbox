@@ -25,18 +25,10 @@ const Home = () => {
 
   const handleInput = e => handleChange(e.target.value);
 
-  const handleNameChange = e => {
-    console.log(name, e.target.value);
-    setName(e.target.value);
-  };
+  const handleNameChange = e => setName(e.target.value);
 
   const handleSubmit = () => {
-    setDoc(prevDoc => {
-      if (!prevDoc.chat) {
-        prevDoc.chat = [];
-      }
-      prevDoc.chat.push({ text: value, username: name, date: new Date() });
-    });
+    setDoc(prevDoc => prevDoc.chat.push({ text: value, username: name, date: new Date() }));
     handleChange("");
   };
 
